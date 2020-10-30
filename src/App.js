@@ -11,7 +11,7 @@ function App() {
     api.get('repositories').then(response => {
       setRepositories(response.data);
     })
-  })
+  }, [])
 
   async function handleAddRepository() {
 
@@ -20,7 +20,7 @@ function App() {
       url: 'github',
       techs: ['react']
     });
-    
+
     setRepositories([...repositories, response.data]);
 
   }
@@ -40,7 +40,7 @@ function App() {
 
             <button onClick={() => handleRemoveRepository(repository.id)}>
               Remover
-          </button>
+            </button>
           </li>
         ))}
       </ul>
